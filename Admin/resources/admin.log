@@ -1,0 +1,8 @@
+Jul 19, 2021 7:40:25 PM mdp.admin.gui.Main start
+ALL: Location is required.
+Jul 19, 2021 7:40:45 PM mdp.admin.gui.KreiranjeKorisnikaController kreirajClick
+ALL: ; nested exception is: 
+	java.net.ConnectException: Connection refused: no further information
+Jul 19, 2021 10:06:25 PM mdp.admin.gui.KreiranjeKorisnikaController kreirajClick
+SEVERE: ; nested exception is: 
+	java.net.ConnectException: Connection refused: no further information
