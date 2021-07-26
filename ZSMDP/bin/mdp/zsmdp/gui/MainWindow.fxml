@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="502.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdp.zsmdp.gui.MainWindowController">
+	<children>
+		<VBox layoutY="74.0" prefHeight="250.0" prefWidth="160.0">
+			<children>
+				<Button fx:id="pregledButton" mnemonicParsing="false" onAction="#pregledRedaVoznjeClick" prefHeight="50.0" prefWidth="160.0" text="Pregled reda voznje" />
+				<Button fx:id="evidentiranjeButton" mnemonicParsing="false" onAction="#evidentirajProlazakClick" prefHeight="50.0" prefWidth="160.0" text="Evidentiranje prolaska voza" />
+				<Button fx:id="obavjestenjeButton" mnemonicParsing="false" onAction="#slanjeObavjestenjaClick" prefHeight="50.0" prefWidth="160.0" text="Slanje obavjestenja" />
+				<Button fx:id="izvjestajButton" mnemonicParsing="false" onAction="#slanjeIzvjestajaClick" prefHeight="50.0" prefWidth="160.0" text="Slanje izvjestaja" />
+				<Button fx:id="odjavaButton" mnemonicParsing="false" onAction="#odjavaClick" prefHeight="50.0" prefWidth="160.0" text="Zatvaranje(odjava)" />
+			</children>
+		</VBox>
+		<ComboBox fx:id="lokacijaBox" layoutX="168.0" layoutY="50.0" onAction="#onlineKorisniciClick" prefWidth="150.0">
+			<items>
+				<FXCollections fx:factory="observableArrayList">
+					<String fx:value="Banjaluka" />
+					<String fx:value="Doboj" />
+					<String fx:value="Prijedor" />
+				</FXCollections>
+			</items>
+		</ComboBox>
+		<ComboBox fx:id="korisniciBox" layoutX="339.0" layoutY="50.0" onMouseReleased="#onlineKorisniciClick" prefWidth="150.0" />
+		<Label layoutX="168.0" layoutY="14.0" text="Lokacije:" />
+		<Label layoutX="347.0" layoutY="14.0" text="Korisnici:" />
+		<TextArea fx:id="porukaArea" layoutX="171.0" layoutY="91.0" prefHeight="85.0" prefWidth="260.0" />
+		<Button fx:id="poslajiFileButton" layoutX="177.0" layoutY="186.0" mnemonicParsing="false" onAction="#posaljiFileClick" text="Posalji file" />
+		<Button fx:id="posaljiPorukuButton" layoutX="279.0" layoutY="186.0" mnemonicParsing="false" onAction="#posaljiPorukuClick" text="Posalji poruku" />
+		<ScrollPane layoutX="171.0" layoutY="234.0" prefHeight="250.0" prefWidth="300.0">
+         <content>
+            <TextArea fx:id="chatArea" prefHeight="250.0" prefWidth="300.0" />
+         </content>
+		</ScrollPane>
+		<ScrollPane layoutX="506.0" layoutY="234.0" prefHeight="250.0" prefWidth="235.0">
+         <content>
+            <TextArea fx:id="obavjestenjaArea" prefHeight="250.0" prefWidth="235.0" />
+         </content>
+		</ScrollPane>
+		<Label layoutX="531.0" layoutY="67.0" prefHeight="17.0" prefWidth="59.0" text="Poruka" />
+		<Label layoutX="526.0" layoutY="116.0" text="Obavjestenje" />
+		<Circle fx:id="porukaCircle" fill="WHITE" layoutX="647.0" layoutY="76.0" onMouseClicked="#procitanaPoruka" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+		<Circle fx:id="obavjestenjeCircle" fill="WHITE" layoutX="647.0" layoutY="125.0" onMouseClicked="#procitanoObavjestenje" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+	</children>
+</AnchorPane>

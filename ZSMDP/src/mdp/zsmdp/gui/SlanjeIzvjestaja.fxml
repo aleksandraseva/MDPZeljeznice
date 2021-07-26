@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="220.0" prefWidth="244.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="mdp.zsmdp.gui.SlanjeIzvjestajaController">
+   <children>
+      <Button fx:id="izvjestajButton" layoutX="93.0" layoutY="30.0" mnemonicParsing="false" onAction="#izvjestajClick" text="Izvjestaj" />
+      <Button fx:id="poslajiButton" layoutX="92.0" layoutY="135.0" mnemonicParsing="false" onAction="#posaljiClick" text="POSALJI" />
+      <TextField fx:id="fileField" layoutX="48.0" layoutY="78.0" />
+   </children>
+</AnchorPane>

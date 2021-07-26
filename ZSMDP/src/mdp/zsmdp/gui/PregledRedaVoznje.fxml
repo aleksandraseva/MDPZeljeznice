@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="299.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mdp.zsmdp.gui.PregledRedaVoznjeController">
+   <children>
+      <ScrollPane layoutX="23.0" layoutY="35.0" prefHeight="230.0" prefWidth="300.0">
+         <content>
+            <TextArea fx:id="redVoznjeArea" prefHeight="230.0" prefWidth="300.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
