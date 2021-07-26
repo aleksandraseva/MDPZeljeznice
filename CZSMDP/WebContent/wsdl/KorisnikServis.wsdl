@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servisi.czsmdp.mdp" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servisi.czsmdp.mdp" xmlns:intf="http://servisi.czsmdp.mdp" xmlns:tns1="http://model.czsmdp.mdp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servisi.czsmdp.mdp" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.czsmdp.mdp"/>
+   <element name="getPort">
+    <complexType>
+     <sequence>
+      <element name="lokacija" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPortResponse">
+    <complexType>
+     <sequence>
+      <element name="getPortReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registrovanjeKorisnika">
+    <complexType>
+     <sequence>
+      <element name="korisnik" type="tns1:Korisnik"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registrovanjeKorisnikaResponse">
+    <complexType>
+     <sequence>
+      <element name="registrovanjeKorisnikaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeraKorisnika">
+    <complexType>
+     <sequence>
+      <element name="korisnik" type="tns1:Korisnik"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="provjeraKorisnikaResponse">
+    <complexType>
+     <sequence>
+      <element name="provjeraKorisnikaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOnlineKorisnika">
+    <complexType>
+     <sequence>
+      <element name="lokacija" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOnlineKorisnikaResponse">
+    <complexType>
+     <sequence>
+      <element name="getOnlineKorisnikaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="brisanjeKorisnika">
+    <complexType>
+     <sequence>
+      <element name="lokacija" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="brisanjeKorisnikaResponse">
+    <complexType>
+     <sequence>
+      <element name="brisanjeKorisnikaReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dohvatiKorisnike">
+    <complexType>
+     <sequence>
+      <element name="lokacija" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dohvatiKorisnikeResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="dohvatiKorisnikeReturn" type="tns1:Korisnik"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="odjavaKorisnika">
+    <complexType>
+     <sequence>
+      <element name="korisnik" type="tns1:Korisnik"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="odjavaKorisnikaResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.czsmdp.mdp" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Korisnik">
+    <sequence>
+     <element name="lokacija" nillable="true" type="xsd:string"/>
+     <element name="passwordHash" nillable="true" type="xsd:string"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="odjavaKorisnikaResponse">
+
+      <wsdl:part element="impl:odjavaKorisnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPortResponse">
+
+      <wsdl:part element="impl:getPortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOnlineKorisnikaResponse">
+
+      <wsdl:part element="impl:getOnlineKorisnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiKorisnikeRequest">
+
+      <wsdl:part element="impl:dohvatiKorisnike" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraKorisnikaRequest">
+
+      <wsdl:part element="impl:provjeraKorisnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOnlineKorisnikaRequest">
+
+      <wsdl:part element="impl:getOnlineKorisnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registrovanjeKorisnikaResponse">
+
+      <wsdl:part element="impl:registrovanjeKorisnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="brisanjeKorisnikaRequest">
+
+      <wsdl:part element="impl:brisanjeKorisnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dohvatiKorisnikeResponse">
+
+      <wsdl:part element="impl:dohvatiKorisnikeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registrovanjeKorisnikaRequest">
+
+      <wsdl:part element="impl:registrovanjeKorisnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="odjavaKorisnikaRequest">
+
+      <wsdl:part element="impl:odjavaKorisnika" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPortRequest">
+
+      <wsdl:part element="impl:getPort" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="provjeraKorisnikaResponse">
+
+      <wsdl:part element="impl:provjeraKorisnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="brisanjeKorisnikaResponse">
+
+      <wsdl:part element="impl:brisanjeKorisnikaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="KorisnikServis">
+
+      <wsdl:operation name="getPort">
+
+         <wsdl:input message="impl:getPortRequest" name="getPortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPortResponse" name="getPortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registrovanjeKorisnika">
+
+         <wsdl:input message="impl:registrovanjeKorisnikaRequest" name="registrovanjeKorisnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registrovanjeKorisnikaResponse" name="registrovanjeKorisnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraKorisnika">
+
+         <wsdl:input message="impl:provjeraKorisnikaRequest" name="provjeraKorisnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:provjeraKorisnikaResponse" name="provjeraKorisnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOnlineKorisnika">
+
+         <wsdl:input message="impl:getOnlineKorisnikaRequest" name="getOnlineKorisnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOnlineKorisnikaResponse" name="getOnlineKorisnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="brisanjeKorisnika">
+
+         <wsdl:input message="impl:brisanjeKorisnikaRequest" name="brisanjeKorisnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:brisanjeKorisnikaResponse" name="brisanjeKorisnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiKorisnike">
+
+         <wsdl:input message="impl:dohvatiKorisnikeRequest" name="dohvatiKorisnikeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dohvatiKorisnikeResponse" name="dohvatiKorisnikeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="odjavaKorisnika">
+
+         <wsdl:input message="impl:odjavaKorisnikaRequest" name="odjavaKorisnikaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:odjavaKorisnikaResponse" name="odjavaKorisnikaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="KorisnikServisSoapBinding" type="impl:KorisnikServis">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getPort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPortResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registrovanjeKorisnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registrovanjeKorisnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registrovanjeKorisnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="provjeraKorisnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="provjeraKorisnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="provjeraKorisnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOnlineKorisnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOnlineKorisnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOnlineKorisnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="brisanjeKorisnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="brisanjeKorisnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="brisanjeKorisnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dohvatiKorisnike">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dohvatiKorisnikeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dohvatiKorisnikeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="odjavaKorisnika">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="odjavaKorisnikaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="odjavaKorisnikaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="KorisnikServisService">
+
+      <wsdl:port binding="impl:KorisnikServisSoapBinding" name="KorisnikServis">
+
+         <wsdlsoap:address location="http://localhost:8080/CZSMDP/services/KorisnikServis"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

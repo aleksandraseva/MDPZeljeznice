@@ -1,0 +1,56 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from KorisnikServisService WSDL service -->
+
+  <service name="KorisnikServis" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servisi.czsmdp.mdp"/>
+      <parameter name="wsdlServiceElement" value="KorisnikServisService"/>
+      <parameter name="schemaQualified" value="http://servisi.czsmdp.mdp,http://model.czsmdp.mdp"/>
+      <parameter name="wsdlServicePort" value="KorisnikServis"/>
+      <parameter name="className" value="mdp.czsmdp.servisi.KorisnikServisSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="KorisnikServis"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getPort" qname="operNS:getPort" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:getPortReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:lokacija" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="registrovanjeKorisnika" qname="operNS:registrovanjeKorisnika" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:registrovanjeKorisnikaReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:korisnik" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:Korisnik" xmlns:tns="http://model.czsmdp.mdp"/>
+      </operation>
+      <operation name="provjeraKorisnika" qname="operNS:provjeraKorisnika" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:provjeraKorisnikaReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:korisnik" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:Korisnik" xmlns:tns="http://model.czsmdp.mdp"/>
+      </operation>
+      <operation name="getOnlineKorisnika" qname="operNS:getOnlineKorisnika" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:getOnlineKorisnikaReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:lokacija" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="brisanjeKorisnika" qname="operNS:brisanjeKorisnika" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:brisanjeKorisnikaReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:lokacija" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:username" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="dohvatiKorisnike" qname="operNS:dohvatiKorisnike" xmlns:operNS="http://servisi.czsmdp.mdp" returnQName="retNS:dohvatiKorisnikeReturn" xmlns:retNS="http://servisi.czsmdp.mdp" returnType="rtns:Korisnik" xmlns:rtns="http://model.czsmdp.mdp" soapAction="" >
+        <parameter qname="pns:lokacija" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="odjavaKorisnika" qname="operNS:odjavaKorisnika" xmlns:operNS="http://servisi.czsmdp.mdp" soapAction="" >
+        <parameter qname="pns:korisnik" xmlns:pns="http://servisi.czsmdp.mdp" type="tns:Korisnik" xmlns:tns="http://model.czsmdp.mdp"/>
+      </operation>
+      <parameter name="allowedMethods" value="getPort provjeraKorisnika registrovanjeKorisnika dohvatiKorisnike brisanjeKorisnika odjavaKorisnika getOnlineKorisnika"/>
+
+      <typeMapping
+        xmlns:ns="http://model.czsmdp.mdp"
+        qname="ns:Korisnik"
+        type="java:mdp.czsmdp.model.Korisnik"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from KlientServisService WSDL service -->
+
+  <service name="KlientServis" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servisi.czsmdp.mdp"/>
+      <parameter name="wsdlServiceElement" value="KlientServisService"/>
+      <parameter name="schemaQualified" value="http://servisi.czsmdp.mdp,http://model.czsmdp.mdp"/>
+      <parameter name="wsdlServicePort" value="KlientServis"/>
+      <parameter name="className" value="mdp.czsmdp.servisi.KlientServis"/>
+      <parameter name="wsdlPortType" value="KlientServis"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://servisi.czsmdp.mdp" xmlns:retNS="http://servisi.czsmdp.mdp" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="registrovanjeKorisnika" qname="operNS:registrovanjeKorisnika" returnQName="retNS:registrovanjeKorisnikaReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://servisi.czsmdp.mdp" xmlns:tns="http://model.czsmdp.mdp" qname="pns:korisnik" type="tns:Korisnik"/>
+      </operation>
+      <operation xmlns:operNS="http://servisi.czsmdp.mdp" xmlns:retNS="http://servisi.czsmdp.mdp" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="provjeraKorisnika" qname="operNS:provjeraKorisnika" returnQName="retNS:provjeraKorisnikaReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://servisi.czsmdp.mdp" xmlns:tns="http://model.czsmdp.mdp" qname="pns:korisnik" type="tns:Korisnik"/>
+      </operation>
+      <parameter name="allowedMethods" value="provjeraKorisnika registrovanjeKorisnika"/>
+
+      <typeMapping xmlns:ns="http://model.czsmdp.mdp" qname="ns:Korisnik" type="java:mdp.czsmdp.model.Korisnik" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

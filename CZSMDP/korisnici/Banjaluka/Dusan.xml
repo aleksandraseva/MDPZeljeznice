@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="15.0.2" class="java.beans.XMLDecoder">
+ <object class="mdp.czsmdp.model.Korisnik">
+  <void property="lokacija">
+   <string>Banjaluka</string>
+  </void>
+  <void property="passwordHash">
+   <string>de2096cf5a6889a074ceac14cd9bae91</string>
+  </void>
+  <void property="username">
+   <string>Dusan</string>
+  </void>
+ </object>
+</java>
